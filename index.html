@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muhammad Chairul Ridwan Weriu | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root{
+--bg:#111214;
+--surface:#1b1d20;
+--card:#202226;
+--silver:#c0c0c0;
+--white:#f5f5f5;
+--muted:#999da4;
+--border:rgba(255,255,255,.10);
+}
+
+body.light{
+--bg:#eeeeee;
+--surface:#ffffff;
+--card:#ffffff;
+--silver:#555b64;
+--white:#17191c;
+--muted:#686d75;
+--border:rgba(0,0,0,.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--white);font-family:'Inter',sans-serif;overflow-x:hidden;transition:.3s}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+
+header{
+position:fixed;top:0;width:100%;z-index:1000;
+padding:20px 8%;
+background:rgba(17,18,20,.88);
+backdrop-filter:blur(18px);
+border-bottom:1px solid var(--border);
+}
+body.light header{background:rgba(255,255,255,.9)}
+.navbar{display:flex;justify-content:space-between;align-items:center;max-width:1300px;margin:auto}
+.logo{font-family:'Outfit';font-size:22px;font-weight:800;letter-spacing:3px}
+.logo span{color:var(--silver)}
+.nav-links{display:flex;align-items:center;gap:25px}
+.nav-links a{color:var(--muted);font-size:12px;font-weight:600;transition:.3s}
+.nav-links a:hover,.nav-links a.active{color:var(--white)}
+.theme-btn,.menu-btn{background:var(--card);border:1px solid var(--border);color:var(--white);padding:10px 13px;border-radius:10px}
+.menu-btn{display:none}
+
+section{padding:110px 8%;scroll-margin-top:75px}
+.container{max-width:1200px;margin:auto}
+.section-heading{text-align:center;margin-bottom:55px}
+.section-heading small{color:var(--silver);letter-spacing:4px;font-size:11px;font-weight:700}
+.section-heading h2{font-family:'Outfit';font-size:clamp(30px,5vw,45px);margin-top:12px}
+.section-heading p{color:var(--muted);font-size:13px;margin-top:12px}
+.silver-line{height:3px;width:55px;background:linear-gradient(90deg,#777,#fff,#777);margin:17px auto;border-radius:10px}
+
+/* HOME */
+#home{
+min-height:100vh;display:flex;align-items:center;
+padding-top:130px;
+background:radial-gradient(circle at 80% 40%,rgba(180,180,180,.09),transparent 35%);
+}
+.hero{display:grid;grid-template-columns:1.3fr .7fr;align-items:center;gap:60px}
+.hero-label{color:var(--silver);letter-spacing:4px;font-size:11px;font-weight:700;margin-bottom:25px}
+.hero h1{font-family:'Outfit';font-size:clamp(40px,6vw,75px);line-height:1.08;font-weight:800}
+.hero h1 span{color:#a9adb4}
+.hero h3{color:var(--muted);font-size:19px;margin-top:23px;font-weight:500}
+.hero p{color:var(--muted);line-height:1.9;max-width:550px;margin:22px 0 30px;font-size:14px}
+.hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 22px;border-radius:8px;font-size:12px;font-weight:700;transition:.3s}
+.btn-primary{background:linear-gradient(135deg,#eee,#898d94);color:#17191c}
+.btn-outline{border:1px solid var(--border);color:var(--white)}
+.btn:hover{transform:translateY(-4px)}
+.hero-image{display:flex;justify-content:center}
+.profile-frame{
+width:min(330px,75vw);height:min(330px,75vw);
+border-radius:50%;padding:9px;
+background:linear-gradient(135deg,#fff,#555,#d7d7d7,#444);
+box-shadow:0 0 70px rgba(200,200,200,.13);
+animation:float 5s ease-in-out infinite;
+}
+.profile-frame img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:5px solid var(--bg)}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-15px)}}
+
+/* CARD */
+.card{
+background:linear-gradient(145deg,var(--card),var(--surface));
+border:1px solid var(--border);
+border-radius:16px;padding:30px;transition:.35s;
+}
+.card:hover{transform:translateY(-7px);border-color:rgba(200,200,200,.4)}
+.card-icon{
+width:48px;height:48px;display:grid;place-items:center;
+background:rgba(180,180,180,.1);color:var(--silver);
+border-radius:12px;font-size:20px;margin-bottom:22px
+}
+.card h3{font-family:'Outfit';font-size:20px;margin-bottom:15px}
+.card p{font-size:13px;color:var(--muted);line-height:1.9;text-align:justify}
+
+/* BIODATA */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:25px}
+.info-list{display:grid;gap:16px}
+.info-item{display:flex;justify-content:space-between;gap:15px;padding-bottom:13px;border-bottom:1px solid var(--border);font-size:12px}
+.info-item span:first-child{color:var(--muted)}
+.info-item span:last-child{font-weight:600;text-align:right}
+
+/* ACADEMIC */
+.timeline{max-width:850px;margin:auto;position:relative}
+.timeline:before{
+content:'';position:absolute;left:17px;top:10px;bottom:10px;
+width:2px;background:linear-gradient(#555,#ddd,#555)
+}
+.timeline-item{position:relative;padding-left:55px;margin-bottom:30px}
+.timeline-dot{
+position:absolute;left:8px;top:22px;width:20px;height:20px;
+border-radius:50%;background:#c0c0c0;border:5px solid var(--bg);
+box-shadow:0 0 0 2px #777
+}
+.timeline-content{background:var(--card);padding:25px;border-radius:13px;border:1px solid var(--border);transition:.3s}
+.timeline-content:hover{transform:translateX(7px)}
+.timeline-content .year{color:var(--silver);font-size:11px;font-weight:700;letter-spacing:2px}
+.timeline-content h3{font-family:'Outfit';margin:10px 0;font-size:19px}
+.timeline-content p{font-size:12px;line-height:1.8;color:var(--muted)}
+
+/* HOBBIES */
+.hobby-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.hobby-card{
+background:var(--card);border:1px solid var(--border);
+padding:30px 20px;border-radius:15px;text-align:center;transition:.35s
+}
+.hobby-card:hover{transform:translateY(-10px);background:linear-gradient(145deg,#303236,#17181a)}
+.hobby-card i{font-size:32px;color:#c0c0c0;margin-bottom:20px}
+.hobby-card h3{font-size:15px;margin-bottom:10px}
+.hobby-card p{color:var(--muted);font-size:11px;line-height:1.7}
+
+/* EXPERIENCE */
+.experience-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+
+/* GOALS */
+.goal-box{
+padding:55px 35px;text-align:center;border:1px solid var(--border);
+background:radial-gradient(circle at top,rgba(200,200,200,.12),transparent 60%),var(--card);
+border-radius:20px
+}
+.goal-box i{font-size:45px;color:#c0c0c0;margin-bottom:25px}
+.goal-box h3{font-family:'Outfit';font-size:28px;margin-bottom:20px}
+.goal-box p{color:var(--muted);max-width:650px;margin:auto;line-height:1.9;font-size:13px}
+.goal-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:30px}
+.goal-tags span{border:1px solid var(--border);border-radius:30px;padding:10px 17px;font-size:11px;color:var(--silver)}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.contact-card{text-align:center;padding:28px 15px;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:.3s}
+.contact-card:hover{transform:translateY(-7px)}
+.contact-card i{font-size:26px;color:var(--silver);margin-bottom:15px}
+.contact-card h3{font-size:14px;margin-bottom:8px}
+.contact-card p{font-size:11px;color:var(--muted);overflow-wrap:anywhere}
+
+footer{border-top:1px solid var(--border);text-align:center;padding:35px 15px;background:var(--surface)}
+footer h3{font-family:'Outfit';letter-spacing:3px;margin-bottom:12px}
+footer p{color:var(--muted);font-size:11px;line-height:1.8}
+
+.reveal{opacity:0;transform:translateY(35px);transition:.8s ease}
+.reveal.show{opacity:1;transform:translateY(0)}
+.back-top{
+position:fixed;bottom:25px;right:25px;width:45px;height:45px;
+background:#c0c0c0;color:#17191c;border:none;border-radius:50%;
+z-index:999;display:none;font-size:17px
+}
+
+@media(max-width:950px){
+header{padding:17px 5%}
+.nav-links{gap:14px}
+.nav-links a{font-size:10px}
+section{padding:90px 6%}
+.hero{gap:25px}
+.hobby-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+.menu-btn{display:block}
+.nav-links{
+position:absolute;top:75px;left:5%;width:90%;
+display:none;flex-direction:column;align-items:stretch;gap:0;
+background:var(--surface);border:1px solid var(--border);
+border-radius:14px;padding:12px
+}
+.nav-links.open{display:flex}
+.nav-links a{padding:13px;font-size:12px}
+.hero{grid-template-columns:1fr;text-align:center}
+.hero-content{order:2}
+.hero-image{order:1}
+.hero p{margin-left:auto;margin-right:auto}
+.hero-buttons{justify-content:center}
+.profile-frame{width:235px;height:235px}
+.about-grid,.experience-grid{grid-template-columns:1fr}
+.contact-grid{grid-template-columns:1fr}
+.hobby-grid{grid-template-columns:repeat(2,1fr);gap:12px}
+.hobby-card{padding:25px 10px}
+section{padding:80px 6%}
+.section-heading{margin-bottom:35px}
+.info-item{font-size:11px}
+}
+@media(max-width:380px){
+.hobby-grid{grid-template-columns:1fr}
+.logo{font-size:17px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="navbar">
+<a href="#home" class="logo">CRW<span>.</span></a>
+
+<div class="nav-links" id="navLinks">
+<a href="#home" class="active">Home</a>
+<a href="#biodata">Biodata</a>
+<a href="#academic">Academic</a>
+<a href="#hobbies">Hobbies</a>
+<a href="#experience">Experience</a>
+<a href="#goals">Goals</a>
+<a href="#contact">Contact</a>
+</div>
+
+<div style="display:flex;gap:10px">
+<button class="theme-btn" id="themeBtn"><i class="fas fa-moon"></i></button>
+<button class="menu-btn" id="menuBtn"><i class="fas fa-bars"></i></button>
+</div>
+</nav>
+</header>
+
+<!-- HOME -->
+<section id="home">
+<div class="container hero">
+<div class="hero-content reveal">
+<div class="hero-label">WELCOME TO MY PERSONAL WEBSITE</div>
+<h1>MUHAMMAD<br>CHAIRUL RIDWAN<br><span>WERIU.</span></h1>
+<h3>Informatics Student | Future Software Engineer</h3>
+<p>
+Halo! Selamat datang di website portofolio pribadi saya.
+Saya adalah mahasiswa Informatika yang memiliki ketertarikan
+pada dunia teknologi, pemrograman, desain digital, dan
+pengembangan aplikasi. Saya percaya bahwa setiap proses
+belajar merupakan langkah menuju masa depan yang lebih baik.
+</p>
+<div class="hero-buttons">
+<a href="#biodata" class="btn btn-primary">Explore My Portfolio <i class="fas fa-arrow-right"></i></a>
+<a href="#contact" class="btn btn-outline">Contact Me</a>
+</div>
+</div>
+
+<div class="hero-image reveal">
+<div class="profile-frame">
+<img src="https://uploads.onecompiler.io/455y7z2ge/1793993741671/WhatsApp%20Image%202026-11-07%20at%2002.34.41.jpeg" alt="Foto Profil Muhammad Chairul Ridwan Weriu"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+<div class="profile-placeholder"><i class="fas fa-user"></i></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- BIODATA -->
+<section id="biodata">
+<div class="container">
+<div class="section-heading reveal">
+<small>GET TO KNOW ME</small>
+<h2>About Me</h2>
+<div class="silver-line"></div>
+<p>Mengenal lebih dekat tentang diri saya.</p>
+</div>
+
+<div class="about-grid">
+<div class="card reveal">
+<div class="card-icon"><i class="fas fa-user"></i></div>
+<h3>Personal Profile</h3>
+<p>
+Perkenalkan, nama saya Muhammad Chairul Ridwan Weriu.
+Saya merupakan mahasiswa Program Studi Informatika yang
+sedang mengembangkan kemampuan dan pengetahuan di bidang
+teknologi informasi. Saya senang mempelajari hal baru,
+mengembangkan kreativitas, serta mencoba berbagai pengalaman
+yang dapat meningkatkan kemampuan diri.
+</p>
+<br>
+<p>
+Bagi saya, keberhasilan bukan hanya tentang hasil akhir,
+tetapi juga tentang proses, konsistensi, dan kemauan untuk
+terus berkembang.
+</p>
+</div>
+
+<div class="card reveal">
+<div class="card-icon"><i class="fas fa-id-card"></i></div>
+<h3>Personal Information</h3>
+<div class="info-list">
+<div class="info-item"><span>Nama</span><span>Muhammad Chairul Ridwan Weriu</span></div>
+<div class="info-item"><span>NIM</span><span>255211026</span></div>
+<div class="info-item"><span>Kelas</span><span>IF3A</span></div>
+<div class="info-item"><span>Program Studi</span><span>Informatika</span></div>
+<div class="info-item"><span>Fakultas</span><span>Matematika dan Ilmu Komputer</span></div>
+<div class="info-item"><span>Universitas</span><span>UNUGHA Cilacap</span></div>
+<div class="info-item"><span>Status</span><span>Mahasiswa Aktif</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- ACADEMIC -->
+<section id="academic">
+<div class="container">
+<div class="section-heading reveal">
+<small>MY EDUCATION</small>
+<h2>Academic Journey</h2>
+<div class="silver-line"></div>
+<p>Perjalanan pendidikan dan pengembangan akademik saya.</p>
+</div>
+
+<div class="timeline">
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="year">PENDIDIKAN DASAR</div>
+<h3>Sekolah Dasar</h3>
+<p>Tempat: SD Negri 01 Kaimana</p>
+<p>Tahun: 2013-2019</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="year">PENDIDIKAN MENENGAH PERTAMA</div>
+<h3>Sekolah Menengah Pertama</h3>
+<p>Tempat: Pondok Pesantren Nuuaar AFKN</p>
+<p>Tahun: 2019-2022</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="year">PENDIDIKAN MENENGAH ATAS</div>
+<h3>Sekolah Menengah Atas</h3>
+<p>Tempat: Madrasah Ihya Ulumuddin kaimana</p>
+<p>Tahun: 2022-2025</p>
+</div>
+</div>
+
+<div class="timeline-item reveal">
+<div class="timeline-dot"></div>
+<div class="timeline-content">
+<div class="year">2025 - SEKARANG</div>
+<h3>Universitas Nahdlatul Ulama Al-Ghazali Cilacap</h3>
+<p>Program Studi: Informatika</p>
+<p>Fakultas: Matematika dan Ilmu Komputer</p>
+<p>Status: Mahasiswa Aktif</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- HOBBIES -->
+<section id="hobbies">
+<div class="container">
+<div class="section-heading reveal">
+<small>MY INTERESTS</small>
+<h2>My Hobbies</h2>
+<div class="silver-line"></div>
+<p>Beberapa kegiatan yang saya sukai.</p>
+</div>
+
+<div class="hobby-grid">
+<div class="hobby-card reveal">
+    <i class="fas fa-guitar"></i>
+    <h3>Music & Playing Guitar</h3>
+    <p>
+        Menikmati musik dan bermain gitar merupakan
+        cara saya mengekspresikan diri, mengisi waktu
+        luang, serta menemukan ketenangan dan inspirasi.
+    </p>
+</div>
+
+<div class="hobby-card reveal">
+    <i class="fas fa-futbol"></i>
+    <h3>Futsal</h3>
+    <p>
+        Saya menyukai futsal karena selain menyenangkan,
+        olahraga ini mengajarkan kerja sama tim,
+        kekompakan, kedisiplinan, dan sportivitas.
+    </p>
+</div>
+
+<div class="hobby-card reveal">
+    <i class="fas fa-gamepad"></i>
+    <h3>Playing Games</h3>
+    <p>
+        Bermain game menjadi salah satu hiburan
+        di waktu luang. Kegiatan ini juga melatih
+        konsentrasi, strategi, dan kemampuan berpikir.
+    </p>
+</div>
+
+<div class="hobby-card reveal">
+    <i class="fas fa-mountain"></i>
+    <h3>Healing</h3>
+    <p>
+        Saya senang menikmati keindahan alam dan
+        mengunjungi tempat baru untuk menyegarkan
+        pikiran, menghilangkan penat, dan mencari
+        pengalaman yang menyenangkan.
+    </p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- GOALS -->
+<section id="goals">
+<div class="container">
+<div class="section-heading reveal">
+<small>MY FUTURE</small>
+<h2>My Goals</h2>
+<div class="silver-line"></div>
+<p>Tujuan dan impian yang ingin saya capai.</p>
+</div>
+
+<div class="goal-box reveal">
+<i class="fas fa-bullseye"></i>
+<h3>Be Better Every Day</h3>
+<p>
+Saya memiliki cita-cita menjadi seorang Software Engineer
+profesional yang mampu menciptakan teknologi dan aplikasi
+yang bermanfaat bagi banyak orang. Saya ingin terus
+mengembangkan kemampuan pemrograman, memperluas wawasan
+teknologi, serta membangun pengalaman melalui berbagai
+proyek dan tantangan baru.
+</p>
+
+<div class="goal-tags">
+<span>Software Engineer</span>
+<span>Web Development</span>
+<span>Programming</span>
+<span>Technology</span>
+<span>Self Development</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<div class="container">
+<div class="section-heading reveal">
+<small>GET IN TOUCH</small>
+<h2>Contact Me</h2>
+<div class="silver-line"></div>
+<p>Hubungi saya untuk berkomunikasi dan berkolaborasi.</p>
+</div>
+
+<div class="contact-grid">
+<a href="mailto:emailkamu@example.com" class="contact-card reveal">
+<i class="fas fa-envelope"></i>
+<h3>Email</h3>
+<p>ridwanweriuw@gmail.com</p>
+</a>
+
+<a href="https://www.instagram.com/Khairulwer_/"
+   target="_blank"
+   rel="noopener noreferrer"
+   class="contact-card reveal">
+
+    <i class="fab fa-instagram"></i>
+    <h3>Instagram</h3>
+    <p>@Khairulwer_</p>
+
+</a>
+
+<a href="https://github.com/" target="_blank" class="contact-card reveal">
+<i class="fab fa-github"></i>
+<h3>GitHub</h3>
+<p>ridwanweriuw</p>
+</a>
+</div>
+</div>
+</section>
+
+<footer>
+<h3>MUHAMMAD CHAIRUL RIDWAN WERIU</h3>
+<p>Personal Portfolio | Informatics Student</p>
+<p style="margin-top:10px">© <span id="year"></span> All Rights Reserved.</p>
+</footer>
+
+<button class="back-top" id="backTop"><i class="fas fa-arrow-up"></i></button>
+
+<script>
+// MOBILE MENU
+const menuBtn=document.getElementById('menuBtn');
+const navLinks=document.getElementById('navLinks');
+
+menuBtn.addEventListener('click',()=>{
+navLinks.classList.toggle('open');
+});
+
+// CLOSE MENU
+document.querySelectorAll('.nav-links a').forEach(link=>{
+link.addEventListener('click',()=>{
+navLinks.classList.remove('open');
+});
+});
+
+// DARK / LIGHT MODE
+const themeBtn=document.getElementById('themeBtn');
+
+themeBtn.addEventListener('click',()=>{
+document.body.classList.toggle('light');
+const light=document.body.classList.contains('light');
+themeBtn.innerHTML=light
+?'<i class="fas fa-sun"></i>'
+:'<i class="fas fa-moon"></i>';
+});
+
+// SCROLL ANIMATION
+const observer=new IntersectionObserver(entries=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('show');
+}
+});
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el=>{
+observer.observe(el);
+});
+
+// BACK TO TOP
+const backTop=document.getElementById('backTop');
+
+window.addEventListener('scroll',()=>{
+backTop.style.display=window.scrollY>400?'block':'none';
+});
+
+backTop.addEventListener('click',()=>{
+window.scrollTo({top:0,behavior:'smooth'});
+});
+
+// ACTIVE NAVIGATION
+const sections=document.querySelectorAll('section');
+const navItems=document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll',()=>{
+let current='';
+sections.forEach(section=>{
+if(window.scrollY>=section.offsetTop-150){
+current=section.getAttribute('id');
+}
+});
+
+navItems.forEach(link=>{
+link.classList.remove('active');
+if(link.getAttribute('href')==='#'+current){
+link.classList.add('active');
+}
+});
+});
+
+// FOOTER YEAR
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
+</body>
+</html>
